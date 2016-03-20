@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>Practical Guide | Trivial Example</title>
+  <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <style>
+    #app {
+      margin: 50px auto;
+    }
+    #app p {
+      margin-top: 10px;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
+</head>
+<body>
+  <main class="container-fluid">
+    <!--Start markup structure for the vue app View-->
+    <div id="app" class="col-md-3">
+      <h3>Title: {{title}}</h3>
+      <input type="text" v-model="user" class="form-control" placeholder="Type your name">
+      <p>User: {{user}}</p>
+    </div>
+    <!--End markup structure for the vue app View-->
+  </main>
+  <script>
+    var
+      model = {//definition of the vue VM's data model
+        title: 'Sample Vue app',
+        user: ''
+      },
+      app = new Vue({//instantiation of a vue VM
+        el: '#app',
+        data: model
+      });
+  </script>
+</body>

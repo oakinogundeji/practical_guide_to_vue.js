@@ -1,0 +1,20 @@
+<section id="uncompleted-todos">
+  <h3>Uncompleted Todos</h3>
+  <p v-show="noTodos" class="text-danger">No todos to display!</p>
+  <ul>
+    <!--Render list of todos contained in the 'todos' data property of the
+  'app-uncompleted-todos' component-->
+    <li v-for="todo in todos">
+      <div class="well">{{todo.todo}}
+        <div>
+          <a href="" class="btn btn-primary btn-default"
+          @click.stop.prevent="markComplete(todo)">Mark Complete</a>
+          <a href="" class="btn btn-warning btn-default"
+          @click.stop.prevent="editTodo(todo)">Edit Todo</a>
+          <a href="" class="btn btn-danger btn-default"
+          @click.stop.prevent="deleteTodo(todo)">Delete Todo</a>
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>

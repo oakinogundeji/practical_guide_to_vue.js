@@ -1,0 +1,18 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "The todo sample app of the collection of example applications for the article series \\\"The practical guide to building data driven web apps with vue.js\\\"",
+  "main": "index.js",
+  "scripts": {
+    "watch": "watchify -t partialify ./app.js -o ./main.js -dv"
+  },
+  "author": "TeliosWebDev",
+  "license": "MIT",
+  "dependencies": {
+    "vue": "^1.0.17"
+  },
+  "devDependencies": {
+    "partialify": "^3.1.6",
+    "watchify": "^3.7.0"
+  }
+}

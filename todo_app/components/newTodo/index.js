@@ -9,24 +9,25 @@ module.exports = {
   },
   methods: {
     addTodo: function () {
-      if(this.todo.trim()) {
-        var data = {
+      if(this.todo.trim()) {//confirm the value of the 'input' widget is not null
+        var data = {//create a new 'todo' object
           todo: this.todo,
           completed: false
         };
-        this.todo = '';
-        return this.$dispatch('newtodo', data);
+        this.todo = '';//reset value of 'todo' data property
+        return this.$dispatch('newtodo', data);//emit 'newtodo' custome event
       }
-      return null;
+      return null;//if value of the 'input' widget is null, do nothing
     },
     discardTodo: function () {
-      return this.todo = '';
+      return this.todo = '';//reset value of 'todo' data property
     }
   },
   events: {
     'changetodo': function (todo) {
       console.log('notified to edit this todo');
-      return this.todo = todo.todo;
+      return this.todo = todo.todo;//set value of 'todo' property,
+      //to value of 'todo.todo'
     }
   }
 };

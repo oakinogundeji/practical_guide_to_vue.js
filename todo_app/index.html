@@ -20,25 +20,25 @@
 <body>
   <main class="container-fluid">
     <!--Start markup structure for the base VM-->
-    <div class="col-md-5" id="app">
+    <div class="col-md-5" id="app"><!--(1)-->
       <!--Start declaration of app-new-todo component-->
-      <app-new-todo></app-new-todo>
+      <app-new-todo></app-new-todo><!--(2)-->
       <!--End declaration of app-new-todo child component-->
-      <div class="row">
+      <div class="row"><!--(3) Action buttons to change the displayed screen-->
         <a href="" class="link btn btn-primary btn-default"
         @click.stop.prevent="viewAllTodos">All Todos</a>
         <a href="" class="link btn btn-success btn-default"
         @click.stop.prevent="viewCompletedTodos">Completed Todos</a>
         <a href="" class="link btn btn-warning btn-default"
         @click.stop.prevent="viewUncompletedTodos">Uncompleted Todos</a>
-      </div>
+      </div><!--(4)-->
       <!--Start declaration of dynamic child components bound to "activeComponent"
     with "props" set to value of "todos" property of base VM-->
-      <component :is="activeComponent" :todos-list="todos" keep-alive></component>
+      <component :is="activeComponent" :todos-list="todos" keep-alive></component><!--(5)-->
       <!--End declaration of dtnamic child component-->
     </div>
     <!--End markup structure for the base VM-->
   </main>
   <!--Pull in bundled javascript code for the base VM via "watchify"-->
-  <script src="main.js"></script>
+  <script src="main.js"></script><!--(6)-->
 </body>

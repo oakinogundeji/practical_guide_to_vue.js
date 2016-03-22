@@ -8,7 +8,8 @@ module.exports = {
       noTodos: false
     };
   },
-  props: ['todosList'],
+  props: ['todosList'],//declare the 'todosList' prop which is bound to the value
+  //of the :todos-list attribute on the parent V i.e. as defined by index.html
   methods: {
     markComplete: function (todo) {
       console.log('mark this todo as complete');
@@ -25,31 +26,36 @@ module.exports = {
   },
   events: {
     'getnewtodo': function (todo) {
-      if(!todo.completed) {
+      if(!todo.completed) {//when this custom event is emitted, ensure that the
+        //accompanying 'todo' object is in an uncompleted state
         console.log('just received new todo from base VM');
         this.noTodos = false;
         return this.todos.unshift(todo);
       }
-      return null;
+      return null;//if the 'todo' is completed, do nothing
     },
     'updatetodos': function () {
-      this.todos = [];
+      this.todos = [];//reset the 'todos' array
       var uncompletedTodos = this.todosList.filter(function (todo) {
         return todo.completed == false;
-      }.bind(this));
+      }.bind(this));//extract only 'uncompleted' todos from the 'todosList' prop
       console.log('uncompleted todos', uncompletedTodos);
-      this.todos = uncompletedTodos;
-      return true;
+      this.todos = uncompletedTodos;//set the 'todos' array to the value of the
+      //filtered todos array
+      return true;//returning true ensure that this event continues to be propagated
+      //to other child components
     }
   },
-  compiled: function () {
+  compiled: function () {//register a handler which listens for the 'compiled'
+  //lifecycle event to be emitted when this component is created
     console.log('todos list length', this.todosList.length);
-    if(this.todosList.length < 1) {
+    if(this.todosList.length < 1) {//check if any todo exists in the 'todosList' prop
       this.noTodos = true;
     }
     else {
       this.noTodos = false;
-      this.$emit('updatetodos');
+      this.$emit('updatetodos');//if todos exist, emit the 'updatetodos' custom
+      //property on this component
     }
   }
 };

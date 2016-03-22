@@ -15,7 +15,7 @@ var baseVM = new Vue({
     todos: [],
     activeComponent: 'app-uncompleted-todo'
   },
-  methods: {
+  methods: {// M start 'methods'
     viewAllTodos: function () {
       console.log('view all todos btn clicked');
       return this.activeComponent = 'app-all-todos';
@@ -38,14 +38,14 @@ var baseVM = new Vue({
       });
       return idx;
     }
-  },
-  components: {
+  },//end 'methods'
+  components: {//C start 'components'
     'app-new-todo': require('./components/newTodo'),
     'app-uncompleted-todo': require('./components/uncompletedTodo'),
     'app-completed-todo': require('./components/completedTodo'),
     'app-all-todos': require('./components/allTodos')
-  },
-  events: {
+  },//end components
+  events: {// E start 'events'
     'newtodo': function (todo) {
       console.log('received new todo', todo);
       this.todos.unshift(todo);
@@ -71,6 +71,6 @@ var baseVM = new Vue({
       this.$broadcast('updatetodos');
       return this.$broadcast('changetodo', todo);
     }
-  }
+  }//end 'events'
 });
 //=============================================================================

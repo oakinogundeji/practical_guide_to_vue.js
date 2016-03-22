@@ -11,6 +11,7 @@ module.exports = {
   props: ['todosList'],
   events: {
     'updatetodos': function () {
+      this.noTodos = false;
       this.todos = [];
       this.todos = this.todosList;
       return true;

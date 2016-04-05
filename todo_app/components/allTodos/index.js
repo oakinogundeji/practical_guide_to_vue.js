@@ -1,5 +1,3 @@
-/*Export the following object which provides the properties of the options object
-passed to the constructor function of a Vue.js component*/
 module.exports = {
   template: require('./template.html'),
   data: function () {

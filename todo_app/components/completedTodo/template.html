@@ -2,8 +2,6 @@
   <h3>Completed Todos...</h3>
   <p v-show="noTodos" class="text-danger">No todos to display!</p>
   <ul>
-    <!--Render list of todos contained in the 'todos' data property of the
-  'app-completed-todos' component-->
     <li v-for="todo in todos">
       <div class="well">
         <p>Todo: {{todo.todo}}</p>

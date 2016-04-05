@@ -17,23 +17,19 @@
 </head>
 <body>
   <main class="container-fluid">
-    <!-- (1) Start markup structure for the vue app View-->
     <div id="app" class="col-md-3">
-      <h3>Title: {{title}}</h3> <!--Data binding via interpolation-->
-      <!--v-model directive used for 2-way data binding of <input> element
-    to the 'user' property of the data model-->
+      <h3>Title: {{title}}</h3>
       <input type="text" v-model="user" class="form-control" placeholder="Type your name">
       <p>User: {{user}}</p>
     </div>
-    <!-- (2) End markup structure for the vue app View-->
   </main>
   <script>
     var
-      model = {// (3) definition of the vue VM's data model
+      model = {
         title: 'Sample Vue app',
         user: ''
       },
-      app = new Vue({// (4) instantiation of a vue VM
+      app = new Vue({
         el: '#app',
         data: model
       });

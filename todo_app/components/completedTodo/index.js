@@ -17,12 +17,12 @@ module.exports = {
       }.bind(this));
       console.log('Completed todos', completedTodos);
       this.todos = completedTodos;
-      if(this.todos.length < 1) {
+      if(this.todos.length < 1) {//check if any completed 'todos' exist
         console.log('no completed todos to display');
-        this.noTodos = true;
+        this.noTodos = true;//if none display 'no todos' message
       }
       else {
-        this.noTodos = false;
+        this.noTodos = false;//else hide 'no todos' message
       }
       return true;
     }
@@ -32,12 +32,12 @@ module.exports = {
     var completedTodos = this.todosList.filter(function (todo) {
       return todo.completed == true;
     }.bind(this));
-    if(completedTodos.length < 1) {
-      this.noTodos = true;
+    if(completedTodos.length < 1) {//check if any completed todos exist
+      this.noTodos = true;//if none display 'no todos' message
     }
     else {
-      this.noTodos = false;
-      this.$emit('updatetodos');
+      this.noTodos = false;//else hide 'no todos' message and
+      this.$emit('updatetodos');//emit event
     }
   }
 };
